@@ -1,0 +1,5 @@
+{first_name_male} {last_name_male} живет в {city_name} - {job_name} 
+Название навыков: {skills_name}
+Сила: {strength}
+Ловкость: {agility}
+Выносливость: {endurance}

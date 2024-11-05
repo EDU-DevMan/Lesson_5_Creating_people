@@ -29,6 +29,7 @@ LITTERS_MAPPING = {
     'Э': 'Э͒͠͠', 'Ю': 'Ю̋͠', 'Я': 'Я̋',
     ' ': ' '
 }
+OUTPUT_DIRECTORY = "output"
 
 skills_name = [
     "Стремительный прыжок",
@@ -40,7 +41,7 @@ skills_name = [
     "Ледяной выстрел",
     "Огненный заряд"
 ]
-quantity_charsheet = 1
+quantity_charsheet = 3
 
 
 def generate_context():
@@ -86,12 +87,13 @@ def generate_context():
 
 
 def main():
-    os.makedirs("output", mode=0o777, exist_ok=True)
+    os.makedirs(OUTPUT_DIRECTORY, mode=0o777, exist_ok=True)
 
     for charsheet in range(quantity_charsheet):
         file_operations.render_template(
             "src/charsheet.svg",
-            "output/charsheet-{}.svg".format(charsheet), generate_context())
+            "{}/charsheet-{}.svg".format(OUTPUT_DIRECTORY, charsheet),
+            generate_context())
 
 
 if __name__ == '__main__':
