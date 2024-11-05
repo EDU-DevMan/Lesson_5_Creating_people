@@ -41,7 +41,7 @@ skills_name = [
     "Ледяной выстрел",
     "Огненный заряд"
 ]
-quantity_charsheet = 3
+quantity_charsheet = 10
 
 
 def generate_context():
