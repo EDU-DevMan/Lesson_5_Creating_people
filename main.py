@@ -27,24 +27,20 @@ LITTERS_MAPPING = {
     'Ч': 'Ч̋͠', 'Ш': 'Ш͒͠', 'Щ': 'Щ̋',
     'Ъ': 'Ъ̋͠', 'Ы': 'Ы̋͠', 'Ь': 'Ь̋',
     'Э': 'Э͒͠͠', 'Ю': 'Ю̋͠', 'Я': 'Я̋',
-    ' ': ' '
-}
+    ' ': ' '}
 OUTPUT_DIRECTORY = "output"
-
-skills_name = [
-    "Стремительный прыжок",
-    "Электрический выстрел",
-    "Ледяной удар",
-    "Стремительный удар",
-    "Кислотный взгляд",
-    "Тайный побег",
-    "Ледяной выстрел",
-    "Огненный заряд"
-]
-quantity_charsheet = 10
 
 
 def generate_context():
+    skills_name = [
+        "Стремительный прыжок",
+        "Электрический выстрел",
+        "Ледяной удар",
+        "Стремительный удар",
+        "Кислотный взгляд",
+        "Тайный побег",
+        "Ледяной выстрел",
+        "Огненный заряд"]
     fake = Faker("ru_RU")
     first_name_male = fake.first_name_male()
     last_name_male = fake.last_name_male()
@@ -80,13 +76,13 @@ def generate_context():
         "luck": luck,
         "skill_1": runic_skill_1,
         "skill_2": runic_skill_2,
-        "skill_3": runic_skill_3
-    }
+        "skill_3": runic_skill_3}
 
     return context
 
 
 def main():
+    quantity_charsheet = 10
     os.makedirs(OUTPUT_DIRECTORY, mode=0o777, exist_ok=True)
 
     for charsheet in range(quantity_charsheet):
