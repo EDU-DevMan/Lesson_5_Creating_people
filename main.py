@@ -29,18 +29,19 @@ LITTERS_MAPPING = {
     'Э': 'Э͒͠͠', 'Ю': 'Ю̋͠', 'Я': 'Я̋',
     ' ': ' '}
 OUTPUT_DIRECTORY = "output"
+SKILLS_NAME = [
+    "Стремительный прыжок",
+    "Электрический выстрел",
+    "Ледяной удар",
+    "Стремительный удар",
+    "Кислотный взгляд",
+    "Тайный побег",
+    "Ледяной выстрел",
+    "Огненный заряд"]
+QUANTITY_CHARSHEET = 10
 
 
 def generate_context():
-    skills_name = [
-        "Стремительный прыжок",
-        "Электрический выстрел",
-        "Ледяной удар",
-        "Стремительный удар",
-        "Кислотный взгляд",
-        "Тайный побег",
-        "Ледяной выстрел",
-        "Огненный заряд"]
     fake = Faker("ru_RU")
     first_name_male = fake.first_name_male()
     last_name_male = fake.last_name_male()
@@ -51,7 +52,7 @@ def generate_context():
     endurance = random.randint(1, 12)
     intelligence = random.randint(1, 12)
     luck = random.randint(1, 12)
-    three_random_skills = random.sample(skills_name, 3)
+    three_random_skills = random.sample(SKILLS_NAME, 3)
 
     runic_skills = []
 
@@ -82,10 +83,9 @@ def generate_context():
 
 
 def main():
-    quantity_charsheet = 10
     os.makedirs(OUTPUT_DIRECTORY, mode=0o777, exist_ok=True)
 
-    for charsheet in range(quantity_charsheet):
+    for charsheet in range(QUANTITY_CHARSHEET):
         file_operations.render_template(
             "src/charsheet.svg",
             "{}/charsheet-{}.svg".format(OUTPUT_DIRECTORY, charsheet),
